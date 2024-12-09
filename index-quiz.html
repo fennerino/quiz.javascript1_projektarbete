@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index-quiz</title>
     <script src="script-quiz.js" defer></script>
-    <link rel="stylesheet" href="css/styles-quiz.css" />
+    <link rel="stylesheet" href="styles-quiz.css" />
   </head>
 
   <body>
@@ -19,16 +19,13 @@
       <label for="check"> Check to confirm that you are ready to begin <span class="asterisk">*</span></label>
       <button id="proceed-btn">Proceed to quiz</button>
     </form>
-  </div>'
+  </div>
 
-  <div id="main-container">
     <div id="quiz-container">
       <h1>Fenris Ankademin-quiz</h1>
 
       <form id="quiz-form">
-        <ol id="questionList">
-
-          <li>
+        <div class="question-div">
             <fieldset>
             <legend>question1</legend>
             <p class="question"> </p>
@@ -37,9 +34,9 @@
             </br>
              <button class="lockIn-btn">Lock in</button>        
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question2</legend>
             <p class="question"> </p>
@@ -48,9 +45,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question3</legend>
             <p class="question"> </p>
@@ -59,9 +56,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question4</legend>
             <p class="question"> </p>
@@ -70,9 +67,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question5</legend>
             <p class="question"> </p>
@@ -81,9 +78,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question6</legend>
             <p class="question"> </p>
@@ -92,9 +89,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question7</legend>
             <p class="question"> </p>
@@ -103,9 +100,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question8</legend>
             <p class="question"> </p>
@@ -114,9 +111,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question9</legend>
             <p class="question"> </p>
@@ -125,9 +122,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question10</legend>
             <p class="question"> </p>
@@ -136,9 +133,9 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
             <legend>question11</legend>
             <p class="question"> </p>
@@ -147,20 +144,19 @@
           </br>
            <button class="lockIn-btn">Lock in</button>
           </fieldset>
-        </li>
+        </div>
 
-          <li>
+          <div class="question-div">
             <fieldset>
-            <legend>question12</legend>
-            <p class="question"> </p>
-            <label><input type="radio" name="q12" value="true">true</label>
-            <label><input type="radio" name="q12" value="false">false</label>
-          </br>
-          <button class="lockIn-btn">Lock in</button>
-          </fieldset>
-        </li>
+              <legend>question12</legend>
+              <p class="question"> </p>
+              <label><input type="radio" name="q12" value="true">true</label>
+              <label><input type="radio" name="q12" value="false">false</label>
+              </br>
+              <button class="lockIn-btn">Lock in</button>
+            </fieldset>
+        </div>
 
-        </ol>
       </form>
 
       <div id="result">
@@ -168,7 +164,6 @@
       </div>
 
     </div>
-  </div>
 
 
   </body>

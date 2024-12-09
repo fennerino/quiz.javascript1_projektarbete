@@ -1,0 +1,18 @@
+body{
+  background-color: rgb(226, 255, 183);
+}
+
+#quiz-container{
+  background-color: rgba(88, 88, 88, 0.408);
+}
+
+/* .popup-div{
+  position:fixed;
+  display: flex;
+  flex-direction: column;
+  
+  text-align: center;
+  color: #fff;
+  background-color: rgba(128, 128, 128, 0.364);
+} */
+
