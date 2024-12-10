@@ -1,11 +1,13 @@
 
 const proceedBtn = document.querySelector("#popup-confirm #proceed-btn");
 proceedBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  let popupDiv = document.querySelector(".popup-div");
-  popupDiv.style.display = "none";
-});
+	e.preventDefault();
+	let popupDiv = document.querySelector(".popup-div");
+	popupDiv.style.display = "none";
 
+	// document.querySelector("fieldset").classList.add("active");
+	// console.log(document.querySelector("fieldset"));
+});
 
 const questions = [
 	"Is JavaScript a case-sensitive language?", // answer: "Yes"
@@ -19,7 +21,6 @@ const questions = [
 	"Does JavaScript support strict typing like TypeScript?", // answer: "No"
 	"Is 'const' used to declare variables that can be reassigned?", // answer: "No",
 ];
-
 const correctAnswers = [
 	"true",
 	"true",
@@ -32,87 +33,89 @@ const correctAnswers = [
 	"false",
 	"false",
 ];
-
-let correctArray = [ ];
-let incorrectArray = [ ];
+let correctArray = [];
+let incorrectArray = [];
 
 let fieldsetNodes = document.querySelectorAll("fieldset .question");
 let fieldsetArray = Array.from(fieldsetNodes);
 
+// let questionDivs = document.querySelectorAll(".question-div");
+// console.log(questionDivs);
+//  questionDivs.forEach((div,index) => {
+//   if (index === 0) {
+//     div.style.display = "block";
+//   }
+//   else {
+//     div.style.display = "none";
+//   }
+//  })
+
+// loop through questions, forEach arrow-function //
 questions.forEach((question, index) => {
-  fieldsetArray[index].innerText = question;
-  index++;
-  console.log(index, question);
-})
+	fieldsetArray[index].innerText = question;
+	index++;
+	console.log(index, question);
+});
 
 let lockInBtn = document.querySelectorAll("fieldset .lockIn-btn");
 let lockinBtns = Array.from(lockInBtn);
-// console.log(lockInBtn, lockinBtns);
 
+// loop through lockinBtns, forEach arrow-function //
 lockinBtns.forEach((button, index) => {
-  button.textContent = "Lock in answer";
+	button.textContent = "Lock in answer";
 
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
+	//eventListener "click" arrow function
+	button.addEventListener("click", (e) => {
+		e.preventDefault();
+		let questionDiv = button.closest(".question-div");
 
-      let questionDiv = button.closest(".question-div");
-			// let questionName = "q" + (index+1);
-
-			let selectedRadio = questionDiv.querySelector(
-				"input[type='radio']:checked"
-			);
-
-    if (!selectedRadio) {
-			alert("select an answer");
+		let selectedRadio = questionDiv.querySelector(
+			"input[type='radio']:checked"
+		);
+		if (!selectedRadio) {
+			alert("Make a selection before locking in your answer.");
 			return;
-		} 
+		} else if (selectedRadio) {
+			let userinput = selectedRadio.value;
+			let correctanswer = correctAnswers[index];
+			console.log(index + 1, "User answer: " + userinput);
+			console.log(index + 1, "Correct answer: " + correctanswer);
 
-    else if (selectedRadio) {
-      let userinput = selectedRadio.value;
-      let correctanswer = correctAnswers[index];
-      console.log(index+1, "User answer: " + userinput);
-      console.log(index+1, "Correct answer: " + correctanswer)
+			if (userinput === correctanswer) {
+				correctArray.push(index + 1);
+				console.log(correctArray);
+			} else {
+				incorrectArray.push(index + 1);
+				console.log("Question " + (index + 1) + " incorrect.");
+			}
 
-      if (userinput === correctanswer) {
-        correctArray.push(index+1);
-        console.log(correctArray);
-      }
+			let prevQuestion = e.target.parentElement.parentElement; //prevQuestion?
+			let activeQuestion = prevQuestion.nextElementSibling; //activeQuestion?
+			let nextQuestion = activeQuestion.nextElementSibling;
 
-      else {
-        incorrectArray.push(index+1);
-        console.log("Question " + (index+1) + " incorrect.");
-      }
-    }
-    
-    
-      let radiobuttons = questionDiv.querySelectorAll("input[type='radio']").forEach(radio => {
-        radio.disabled = true;
-      });
-    //   radiobuttons.forEach(radio => {
-    //     radio.disabled = true;
-    // })
+			console.log(prevQuestion, activeQuestion, nextQuestion);
+			// console.log(activeQuestion, nextQuestion, prevQuestion);
 
-    button.disabled = true;
-    button.innerText = "Locked in";
-    button.style.color = "grey";
-    button.style.fontStyle = "italic";
-    console.log("question " + (index + 1) + " successfully locked in");
+			activeQuestion.style.display = "block";
+			activeQuestion.style.opacity = "1";
+			prevQuestion.style.opacity = "0.5";
+			// nextQuestion.style.opacity = "0";
+		}
 
+		// loop through radio-btns' value, forEach arrow-function //
+		let radiobuttons = questionDiv
+			.querySelectorAll("input[type='radio']")
+			.forEach((radio) => {
+				radio.disabled = true;
+			});
+		//   radiobuttons.forEach(radio => {
+		//     radio.disabled = true;
+		// })
 
-
-
-  })
-})
-
-  // questions.forEach((question, index) => {
-	// 	fieldsetArray[index].innerText = question;
-	// 	index++;
-	// 	console.log(question, index);
-	// });
-
-//  document.getElementsByName('q1')
-//   .forEach(radio => {
-//     if (radio.checked) {
-//       console.log(radio.value);
-//     }
-// });
+		button.disabled = true;
+		button.innerText = "Locked in";
+		button.style.color = "grey";
+		button.style.fontStyle = "italic";
+		console.log("question " + (index + 1) + " successfully locked in");
+	});
+});

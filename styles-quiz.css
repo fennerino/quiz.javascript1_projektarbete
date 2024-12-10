@@ -3,8 +3,38 @@ body{
 }
 
 #quiz-container{
+  max-width: 400px;
+  margin:auto;
   background-color: rgba(88, 88, 88, 0.408);
+  padding:20px;
+  /* border-radius:10px; */
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 3px 1px;
 }
+
+legend {
+  text-align: left;
+}
+
+fieldset {
+  background-color: aliceblue;
+  /* display:none; */
+  /* opacity:0.2; */
+}
+
+/* fieldset:not(:active) {
+  color:red;
+}
+
+fieldset .active {
+    opacity:0.8;
+  } */
+
+  /* .question-div .active{
+    opacity:0.8;
+  } */
+
+
 
 /* .popup-div{
   position:fixed;
