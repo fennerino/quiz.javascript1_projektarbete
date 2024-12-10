@@ -1,18 +1,44 @@
 
+let divs = document.querySelectorAll("div");
+divs.forEach((div, index) => {
+  // if (index !== 0) {
+  //   div.style.display = "none";
+  // }
+})
+
 const proceedBtn = document.querySelector("#popup-confirm #proceed-btn");
 proceedBtn.addEventListener("click", (e) => {
 	e.preventDefault();
+  
+  // console.log(e.currentTarget)
+  // console.log(e.target.parentElement.parentElement.nextElementSibling)
+
+let parentDiv = e.target.parentElement.parentElement;
+console.log(parentDiv)
+
+let nextDiv = parentDiv.nextElementSibling;
+console.log(nextDiv);
+Z
+
+let questionDiv = e.target.parentElement.closest("div");
+console.log(questionDiv)
+// let nextnextDiv = nextDiv.nextElementSibling;
+// console.log(nextnextDiv)
+
+// let questionDiv = e.target.closest(".question-div");
+// console.log(questionDiv)
+
 	let popupDiv = document.querySelector(".popup-div");
 	popupDiv.style.display = "none";
 
-	// document.querySelector("fieldset").classList.add("active");
-	// console.log(document.querySelector("fieldset"));
+	// let question1 = document.querySelector("fieldset").classList.add("active");
+	// console.log(document.querySelector(question1, "fieldset"));
 });
 
 const questions = [
 	"Is JavaScript a case-sensitive language?", // answer: "Yes"
 	"Can JavaScript be used for both frontend and backend development?", // answer: "Yes"
-	"Does JavaScript suppo1rt classes?", // answer: "Yes"
+	"Does JavaScript support classes?", // answer: "Yes"
 	"Is JavaScript the same as Java?", // answer: "No"
 	"Can you declare a variable in JavaScript using the keyword 'var'?", // answer: "Yes"
 	"Do all JavaScript functions have to return a value?", // answer: "No"
@@ -39,16 +65,6 @@ let incorrectArray = [];
 let fieldsetNodes = document.querySelectorAll("fieldset .question");
 let fieldsetArray = Array.from(fieldsetNodes);
 
-// let questionDivs = document.querySelectorAll(".question-div");
-// console.log(questionDivs);
-//  questionDivs.forEach((div,index) => {
-//   if (index === 0) {
-//     div.style.display = "block";
-//   }
-//   else {
-//     div.style.display = "none";
-//   }
-//  })
 
 // loop through questions, forEach arrow-function //
 questions.forEach((question, index) => {
@@ -68,6 +84,7 @@ lockinBtns.forEach((button, index) => {
 	button.addEventListener("click", (e) => {
 		e.preventDefault();
 		let questionDiv = button.closest(".question-div");
+    console.log(questionDiv)
 
 		let selectedRadio = questionDiv.querySelector(
 			"input[type='radio']:checked"
@@ -86,15 +103,14 @@ lockinBtns.forEach((button, index) => {
 				console.log(correctArray);
 			} else {
 				incorrectArray.push(index + 1);
+        console.log(incorrectArray);
 				console.log("Question " + (index + 1) + " incorrect.");
 			}
 
-			let prevQuestion = e.target.parentElement.parentElement; //prevQuestion?
-			let activeQuestion = prevQuestion.nextElementSibling; //activeQuestion?
+			let prevQuestion = e.target.parentElement.parentElement;
+			let activeQuestion = prevQuestion.nextElementSibling;
 			let nextQuestion = activeQuestion.nextElementSibling;
-
 			console.log(prevQuestion, activeQuestion, nextQuestion);
-			// console.log(activeQuestion, nextQuestion, prevQuestion);
 
 			activeQuestion.style.display = "block";
 			activeQuestion.style.opacity = "1";
@@ -116,6 +132,6 @@ lockinBtns.forEach((button, index) => {
 		button.innerText = "Locked in";
 		button.style.color = "grey";
 		button.style.fontStyle = "italic";
-		console.log("question " + (index + 1) + " successfully locked in");
+		// console.log("question " + (index + 1) + " successfully locked in");
 	});
 });
