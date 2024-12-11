@@ -15,6 +15,10 @@ proceedBtn.addEventListener("click", (e) => {
 	});
 
 	// #region Trial n Error
+		// let trials = document.querySelector("#quiz-form").children;
+		// quizDivs = Array.from(trials);
+		// console.log(trials, quizDivs);
+
 	// let parentDiv = e.target.parentElement.parentElement;
 	// console.log(parentDiv)
 	// let nextDiv = parentDiv.nextElementSibling;
@@ -63,7 +67,7 @@ questions.forEach((question, index) => {
 let lockInBtn = document.querySelectorAll("fieldset .lockIn-btn");
 let lockinBtns = Array.from(lockInBtn);
 
-// loop through lockinBtns, forEach arrow-function //
+// #region // loop through lockinBtns, forEach arrow-function //
 lockinBtns.forEach((button, index) => {
 	button.textContent = "Lock in answer";
 
@@ -71,7 +75,7 @@ lockinBtns.forEach((button, index) => {
 	button.addEventListener("click", (e) => {
 		e.preventDefault();
 		let questionDiv = button.closest(".question-div");
-    console.log(questionDiv)
+    // console.log(questionDiv)
 
 		let selectedRadio = questionDiv.querySelector(
 			"input[type='radio']:checked"
@@ -79,7 +83,8 @@ lockinBtns.forEach((button, index) => {
 		if (!selectedRadio) {
 			alert("Make a selection before locking in your answer.");
 			return;
-		} else if (selectedRadio) {
+		} 
+		else if (selectedRadio) {
 			let userinput = selectedRadio.value;
 			let correctanswer = correctAnswers[index];
 			console.log(index + 1, "User answer: " + userinput);
@@ -102,7 +107,6 @@ lockinBtns.forEach((button, index) => {
 			activeQuestion.style.display = "block";
 			activeQuestion.style.opacity = "1";
 			prevQuestion.style.opacity = "0.5";
-			// nextQuestion.style.opacity = "0";
 		}
 
 		// loop through radio-btns' value, forEach arrow-function //
@@ -111,9 +115,6 @@ lockinBtns.forEach((button, index) => {
 			.forEach((radio) => {
 				radio.disabled = true;
 			});
-		//   radiobuttons.forEach(radio => {
-		//     radio.disabled = true;
-		// })
 
 		button.disabled = true;
 		button.innerText = "Locked in";
@@ -122,3 +123,10 @@ lockinBtns.forEach((button, index) => {
 		// console.log("question " + (index + 1) + " successfully locked in");
 	});
 });
+//#endregion
+
+let submitBtn = document.querySelector("#submitBtn");
+
+function submitQuiz() {
+	submitBtn.addEventListener("click", (e)) ;
+}
