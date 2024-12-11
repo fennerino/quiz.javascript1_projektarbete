@@ -18,23 +18,11 @@ fieldset {
   background-color: aliceblue;
   box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 3px 1px;
   border: none;
-  /* display:none; */
-  /* opacity:0.2; */
 }
 
-/* fieldset:not(:active) {
-  color:red;
-} */
-
-/* fieldset .active {
-    opacity:0.8;
-  }  */
-
-  /* .question-div .active{
-    opacity:0.8;
-  } */
-
-
+.question-div {
+  display:none;
+}
 
 .popup-div{
   position:fixed;

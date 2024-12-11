@@ -1,38 +1,25 @@
 
-let divs = document.querySelectorAll("div");
-divs.forEach((div, index) => {
-  // if (index !== 0) {
-  //   div.style.display = "none";
-  // }
-})
-
 const proceedBtn = document.querySelector("#popup-confirm #proceed-btn");
 proceedBtn.addEventListener("click", (e) => {
 	e.preventDefault();
-  
-  // console.log(e.currentTarget)
-  // console.log(e.target.parentElement.parentElement.nextElementSibling)
-
-let parentDiv = e.target.parentElement.parentElement;
-console.log(parentDiv)
-
-let nextDiv = parentDiv.nextElementSibling;
-console.log(nextDiv);
-Z
-
-let questionDiv = e.target.parentElement.closest("div");
-console.log(questionDiv)
-// let nextnextDiv = nextDiv.nextElementSibling;
-// console.log(nextnextDiv)
-
-// let questionDiv = e.target.closest(".question-div");
-// console.log(questionDiv)
-
 	let popupDiv = document.querySelector(".popup-div");
 	popupDiv.style.display = "none";
 
-	// let question1 = document.querySelector("fieldset").classList.add("active");
-	// console.log(document.querySelector(question1, "fieldset"));
+	let questionDivs = document.querySelectorAll(".question-div");
+	questionDivs.forEach((div, index) => {
+		if (index === 0) {
+			div.style.display = "block";
+		} else {
+			div.style.display = "none";
+		}
+	});
+
+	// #region Trial n Error
+	// let parentDiv = e.target.parentElement.parentElement;
+	// console.log(parentDiv)
+	// let nextDiv = parentDiv.nextElementSibling;
+	// console.log(nextDiv);
+	//#endregion
 });
 
 const questions = [
