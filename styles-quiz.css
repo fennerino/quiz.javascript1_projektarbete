@@ -34,3 +34,12 @@ fieldset {
   background-color: rgba(128, 128, 128, 0.364);
 }
 
+#submit-btn {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;;
+}
+
+/* #quiz-results {
+  display:block;
+} */
+

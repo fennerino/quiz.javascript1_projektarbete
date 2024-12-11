@@ -56,6 +56,8 @@ let incorrectArray = [];
 let fieldsetNodes = document.querySelectorAll("fieldset .question");
 let fieldsetArray = Array.from(fieldsetNodes);
 
+		let submitBtn = document.querySelector("#submitBtn");
+		submitBtn.style.display = "none";
 
 // loop through questions, forEach arrow-function //
 questions.forEach((question, index) => {
@@ -74,6 +76,8 @@ lockinBtns.forEach((button, index) => {
 	//eventListener "click" arrow function
 	button.addEventListener("click", (e) => {
 		e.preventDefault();
+
+		// console.log(e.target.lastChild);
 		let questionDiv = button.closest(".question-div");
     // console.log(questionDiv)
 
@@ -93,7 +97,8 @@ lockinBtns.forEach((button, index) => {
 			if (userinput === correctanswer) {
 				correctArray.push(index + 1);
 				console.log(correctArray);
-			} else {
+			} 
+			else {
 				incorrectArray.push(index + 1);
         console.log(incorrectArray);
 				console.log("Question " + (index + 1) + " incorrect.");
@@ -120,13 +125,56 @@ lockinBtns.forEach((button, index) => {
 		button.innerText = "Locked in";
 		button.style.color = "grey";
 		button.style.fontStyle = "italic";
-		// console.log("question " + (index + 1) + " successfully locked in");
+
+		if (index === questions.length) { // index === 10
+			submitBtn.style.display = "block";
+		}
 	});
 });
 //#endregion
 
-let submitBtn = document.querySelector("#submitBtn");
+let quizResults = document.querySelector("#quiz-results");
+quizResults.style.backgroundColor = "red";
+quizResults.style.display = "none";
 
-function submitQuiz() {
-	submitBtn.addEventListener("click", (e)) ;
-}
+// quizResults.style.display = "block"; // TEMP
+
+//#region 
+		// let resultsP = document.querySelectorAll("#quiz-results p");
+		// // let resultsCorrect = document.querySelector("#quiz-results p");
+		// // let resultsIncorrect = document.querySelector("#quiz-results p");
+		// resultsP[0].append(correctArray.length + " correct answers");
+		// resultsP[1].append(incorrectArray.length + " incorrect answers");
+
+		// let resultsTitle = document.querySelector("#quiz-results h2");
+		// resultsTitle.append("your results are...");
+		// resultsCorrect.append(correctArray.length + " correct answers");
+		// resultsIncorrect.append(incorrectArray.length + " incorrect answers");
+
+		// console.log(quizResults);
+//#endregion
+
+
+//MAKE INTO POPUP-WINDOW:
+	submitBtn.addEventListener("click", (e) => {
+		e.preventDefault();
+		let resultsP = document.querySelectorAll("#quiz-results p");
+		// let resultsCorrect = document.querySelector("#quiz-results p");
+		// let resultsIncorrect = document.querySelector("#quiz-results p");
+		resultsP[0].append(correctArray.length + " correct answers");
+		resultsP[1].append(incorrectArray.length + " incorrect answers");
+		let resultsTitle = document.querySelector("#quiz-results h2");
+		resultsTitle.append("your results are...");
+		// let resultsP = document.querySelector("#quiz-results p")
+		// quizResults.style.display = "block";
+		// resultsP.append("your results are");
+		// console.log(resultsP)
+
+		// let resultsDiv = document.createElement("div");
+		// resultsDiv.classList.add("resultsDiv");
+		// resultsDiv.style.backgroundColor = "red";
+		// resultsDiv.innerHTML = "<p>your results!</p>"
+		// console.log(resultsDiv);
+		// resultsDiv.style.display = "block";
+
+	})
