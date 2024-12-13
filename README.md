@@ -3,13 +3,18 @@ const QuizProjectFenris =
     javascript1.examinationsuppgift = "Fenkademin-ris Quizzical";
     }
 
-    console.log(quizDraft[2])
+    console.log(quizVersion[2])
     console.log("Dark-mode not yet implemented " + QuizProjectFenris + " —submission 1/2");
 }
 
-FEND24, Fenrir Janghede
-  Javascript 1, projektarbete examination -
-  'Ankademin Quiz'
+
+FEND24, Fenrir Janghede 
+
+Javascript 1, projektarbete examination -
+
+'Ankademin Quiz'
+
+
 — version1; 'Dark-mode' missing/pending —
 — v.2 to be uploaded asap implementing 'Dark-Light-mode' toggle —
   
