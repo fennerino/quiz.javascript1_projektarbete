@@ -162,6 +162,7 @@ submitBtn.addEventListener("click", (e) => {
 		percentageRoundedUp
 	);
 });
+
 // let score = 0;
 // let totalQuestions = 15;
 // let percentage = Math.round((score / totalQuestions) * 100 * 10) / 10;
