@@ -62,17 +62,6 @@ fieldset {
   display:none;
 }
 
-/* .popup-div{
-  max-width: 400px;
-  margin:auto;
-  position:fixed;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: #fff;
-  background-color: rgba(128, 128, 128, 0.364);
-} */
-
 #h3-perhaps {
   font-size: 3px;
   opacity:0.15;
