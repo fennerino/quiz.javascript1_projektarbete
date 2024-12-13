@@ -22,13 +22,31 @@ body{
 
 #quiz-container{
   margin-top:1%;
-  max-width: 400px;
+  max-width: 500px;
   margin:auto;
   padding-top: 10px;
   padding:20px;
   text-align: center;
 
  
+}
+
+h1 {
+  opacity:0.5;
+  text-shadow: rgba(0, 0, 0, 0.4) 1px 3px 3px;
+  font-style: italic;
+  font-size: 32px;
+  border-bottom: solid 2px #797979a4;
+  border-top: solid 2px #797979a4;
+  font-weight: 500;
+}
+
+.shrug {
+  font-weight: 500;
+  font-size: 20px;
+  font-style: normal;
+  color: #750000;
+  text-shadow: rgba(0, 0, 0, 0.4) 1px 3px 3px;
 }
 
 legend {
@@ -57,20 +75,24 @@ fieldset {
 
 #h3-perhaps {
   font-size: 3px;
-  opacity:0.2;  
+  opacity:0.15;
+  display:none;
 }
 
 #quiz-container h2 {
-  font-weight:400;
+  font-weight:500;
   font-style: italic;
   font-size: 18px;  
   line-height:0cap;
+  color: #57575798;
 }
 
 #quiz-container h3 {
   line-height:2cap;
+  color: #57575798;
   font-weight: normal;
-  font-size: 16px;  
+  font-style: italic;
+  font-size: 15px;  
 }
 
 .popup-div {
@@ -81,14 +103,13 @@ fieldset {
   top: 30%;
   left: 50%;
   padding: 30px;
-
-
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #fff;
-  background-color: rgba(128, 128, 128, 0.544);
+  background-color: rgba(255, 255, 255, 0.849);
+  color: #053600e1;
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 6px;
   z-index: 1001; /* Make sure the popup div is on top */
